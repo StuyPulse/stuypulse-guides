@@ -119,17 +119,19 @@ import edu.stuy.Robot;
 import edu.stuy.util.ArmsPosition;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ArmsGetNarrowerCommand extends Command {
+public class PneumaticsCommand extends Command {
 
-    public ArmsGetNarrowerCommand() {
+    public PneumaticsCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.arms);
+        requires(Robot.pneumatics);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        nextPosition.goToPosition();
+    	// Put this in init so it is run once and before isFinished()
+        Robot.pneumatics.setShortPistonOut(true);
+        Robot.pneumatics.setLongPistonOut(true);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -138,6 +140,7 @@ public class ArmsGetNarrowerCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    // Return true so execute only runs once
         return true;
     }
 
@@ -172,9 +175,11 @@ public class TankDriveCommand extends Command {
     protected void execute() {
 	Robot.drivetrain.tankdrive(Robot.oi.driverPad.getLeftY(), Robot.oi.driverPad.getRightY()
     )
+    
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        // This is Drivetrain's default command.
+        // Because this is a default command for a subsystem (Drivetrain)
+        // it should not end when the button is de-pressed.
         return false;
     }
 
@@ -188,7 +193,9 @@ public class TankDriveCommand extends Command {
     }
 }
 ```
+
 ### Arcade Drive:
+
 ```
 package edu.stuy.commands;
 
@@ -205,20 +212,16 @@ public class ArcadeDriveCommand extends Command {
     }
 
     protected void execute() {
-	Robot.drivetrain.arcadedrive(Robot.oi.driverPad.getLeftY(), Robot.oi.driverPad.getRightY()
+	Robot.drivetrain.arcadedrive(Robot.oi.driverPad.getLeftY(), Robot.oi.driverPad.getRightX()
     )
-    // Make this return true when this Command no longer needs to run execute()
+
     protected boolean isFinished() {
-        // This is Drivetrain's default command.
         return false;
     }
 
-    // Called once after isFinished returns true
     protected void end() {
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
     protected void interrupted() {
     }
 
