@@ -120,6 +120,8 @@ You can go watch the match if there is nothing else to do. Make sure to take not
 		+ Connect to the radio manually (10.6.94.1) and un-check and then re-check all the options manually, then save
 	+ Check if the roboRIO is connected
 		+ 10.6.94.2 is the IP for the roboRIO
+            + Open command prompt (Windows Key + X , A)
+            + Run: ```ping 10.6.94.2```
 		+ roborio-694.local
 	+ Re-configure the radio at the front desk
 	+ Replace ethernet cables (use straigh-through cables)
