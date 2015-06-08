@@ -125,5 +125,50 @@ You can go watch the match if there is nothing else to do. Make sure to take not
 	+ Replace ethernet cables (use straigh-through cables)
 	+ Make sure the Driver Station is configured to use the correct year's FMS
 	+ Restart Driver Station
-+ Driver Station not functioning, not detecting gamepads
++ **Driver Station not functioning, not detecting gamepads**
 	+ Restart the computer and re-open all the programs that are supposed to be open
++ **Flashing the roboRIO**
+	+ Open a file browser and go to the following path:
+
+		```
+	C:\Program Files (x86)\National Instruments\LabVIEW 2014\project\roboRIO Tool
+		```
+	+ If that path does not exist, use:
+
+		```
+	C:\Program Files\National Instruments\LabVIEW 2014\project\roboRIO Tool
+		```
+	+ Run ```roboRIO_ImagingTool```
+	+ The tool will automatically search for roboRIO targets that are connected to the computer
+	+ Enter your team number in the text box in the top right
+	+ Make sure the "Format Target" checkbox is checked
+	+ Select the image. There should be images already located in the lower left box. Select the correct version, and click "Reformat"
+	+ roboRIO images will be in:
+
+		```
+	C:\Program Files (x86)\National Instruments\LabVIEW 2014\project\roboRIO Tool\FRC Images
+		```
++ **Updating the PCM, PDP, and other things**
+	+ Connect to the roboRIO
+	+ Open an internet browser
+	+ Go to ```roborio-694.local```. If this is being done for another team, then change 694 to the team number. (i.e. For Team 9876, go to ```roborio-9876.local```)
+		+ If this window does not open, make sure Microsoft Silverlight is the latest version.
+	+ Click "Login" in the top right
+	+ Enter "admin" as the username and hit enter.
+	+ Select the system you want to reflash, and click "Update Firmware" in the bottom right
+	+ A window will pop up, navigate to:
+
+		```
+	C:\Users\Public\Documents\FRC
+		```
+	+ Select the .crf file for the system (PCM-Application-1.62.crf for a 2015 PCM, PDP-Application-1.40.crf for a 2015 PDP, etc.)
+	+ Click "Open"
+	+ Click "Begin Update"
+
++ **Clearning a Sticky Fault (system is blinking orange)**
+	+ Connect to the roboRIO
+	+ Open an internet browser
+	+ Go to ```roborio-694.local```. If this is being done for another team, then change 694 to the team number. (i.e. For Team 9876, go to ```roborio-9876.local```)
+		+ If this window does not open, make sure Microsoft Silverlight is the latest version.
+	+ Select system with a Sticky Fault
+	+ Rapidly click "Self Test" until the screen displays "Faults cleared!"
