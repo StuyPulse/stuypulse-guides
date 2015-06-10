@@ -35,7 +35,8 @@ The following should be done before the first match of competitions (before prac
 	+ Go into the utilities tab and open the Java Smart Dashboard if it has not opened already
 + Run a systems check (All moving parts of the robot bound to controls need to be tested)
 	+ Connect with a printer cable or with ethernet cable + USB to Ethernet adapter
-		+ If using the USB to Ethernet adapter, the USB end must be connected to the roboRIO and the ethernet end should be connected to Justin Time
+		+ If using the USB to Ethernet adapter, the USB end must be connected to the roboRIO		 and the ethernet end should be connected to Justin Time
+	+ **Make sure the gamepads are plugged into the correct ports**
 	+ If anything is wrong with the robot or with the code, repair or fix it.
 + Configure the router for competition
 	+ Bring to front desk and configure with FRC utilities to work with the FMS
